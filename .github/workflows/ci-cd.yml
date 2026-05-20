@@ -37,10 +37,3 @@ jobs:
         push: true
         tags: ${{ secrets.DOCKER_USERNAME }}/tasktracker-frontend:latest
 
-  deploy:
-    needs: build-and-push
-    runs-on: ubuntu-latest
-    if: ${{ secrets.RENDER_DEPLOY_HOOK_URL != '' }}
-    steps:
-    - name: Deploy Backend to Render
-      run: curl -X POST ${{ secrets.RENDER_DEPLOY_HOOK_URL }}
