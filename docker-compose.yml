@@ -13,9 +13,9 @@ services:
     ports:
       - "5000:5000"
     environment:
-      - PORT=5000
-      - MONGO_URI=mongodb+srv://vanshikaguptaaa2005_db_user:vanshika1234@cluster0.nrsh1qf.mongodb.net/CRUD?appName=Cluster0
-      - JWT_SECRET=supersecretjwtkey_change_in_production
+      - PORT=${PORT:-5000}
+      - MONGO_URI=${MONGO_URI}
+      - JWT_SECRET=${JWT_SECRET}
     depends_on:
       - mongodb
 
